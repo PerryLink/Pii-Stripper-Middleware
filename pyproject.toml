@@ -1,0 +1,61 @@
+[tool.poetry]
+name = "pii-stripper-middleware"
+version = "0.1.0"
+description = "PII 自动脱敏中间件——在发送数据给 LLM 前自动替换敏感信息，回复后自动还原"
+authors = ["Chance Dean <novelnexusai@outlook.com>"]
+license = "Apache-2.0"
+readme = "README.md"
+homepage = "https://github.com/PerryLink/pii-stripper-middleware"
+repository = "https://github.com/PerryLink/pii-stripper-middleware"
+keywords = ["pii", "privacy", "llm", "openai", "middleware", "anonymization", "gdpr", "compliance"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Security",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+packages = [{ include = "pii_stripper_middleware", from = "src" }]
+
+[tool.poetry.scripts]
+pii-stripper = "pii_stripper_middleware.cli:app"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+presidio-analyzer = { version = ">=2.2,<3.0", optional = true }
+presidio-anonymizer = { version = ">=2.2,<3.0", optional = true }
+spacy = { version = ">=3.4,<4.0", optional = true }
+openai = ">=1.0,<2.0"
+rich = ">=13.0,<14.0"
+typer = { extras = ["all"], version = ">=0.9,<1.0" }
+python-dotenv = ">=1.0,<2.0"
+
+[tool.poetry.extras]
+nlp = ["presidio-analyzer", "presidio-anonymizer", "spacy"]
+all = ["presidio-analyzer", "presidio-anonymizer", "spacy"]
+
+[tool.poetry.group.dev.dependencies]
+pytest = ">=7.4,<9.0"
+pytest-cov = ">=4.1,<6.0"
+ruff = ">=0.1.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v --tb=short"
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
+ignore = ["E501"]
