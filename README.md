@@ -1,6 +1,7 @@
 <div align="center">
 
 # Pii-Stripper-Middleware
+[![Gitee](https://img.shields.io/badge/Gitee-mirror-c71d23?logo=gitee)](https://gitee.com/perrylink/pii-stripper-middleware)
 
 **Automatically anonymize PII before sending text to an LLM, then restore it after the reply.**
 
