@@ -51,13 +51,15 @@ Pii-Stripper-Middleware 位于你的应用与 LLM 之间。发送请求前，它
 **基础安装（正则模式，无需 SpaCy）**
 
 ```bash
-pip install pii-stripper-middleware
+pip install "git+https://github.com/PerryLink/Pii-Stripper-Middleware.git"
+# （PyPI 未发布，源码直装）
 ```
 
 **完整安装（含 NLP 实体识别）**
 
 ```bash
-pip install "pii-stripper-middleware[nlp]"
+pip install "pii-stripper-middleware[nlp] @ git+https://github.com/PerryLink/Pii-Stripper-Middleware.git"
+# （PyPI 未发布，源码直装）
 
 # 下载中文 SpaCy 模型（推荐）
 python -m spacy download zh_core_web_sm
@@ -69,9 +71,10 @@ python -m spacy download en_core_web_sm
 **使用 Poetry**
 
 ```bash
-poetry add pii-stripper-middleware
+poetry add git+https://github.com/PerryLink/Pii-Stripper-Middleware.git
+# （PyPI 未发布，源码直装）
 # 含 NLP 支持
-poetry add "pii-stripper-middleware[nlp]"
+poetry add git+https://github.com/PerryLink/Pii-Stripper-Middleware.git --extras nlp
 ```
 
 ## 使用指南

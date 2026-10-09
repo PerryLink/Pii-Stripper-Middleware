@@ -52,13 +52,15 @@ Original input:
 **Basic (regex mode, no SpaCy required)**
 
 ```bash
-pip install pii-stripper-middleware
+pip install "git+https://github.com/PerryLink/Pii-Stripper-Middleware.git"
+# (installs from source; not yet on PyPI)
 ```
 
 **Full (with NLP entity recognition)**
 
 ```bash
-pip install "pii-stripper-middleware[nlp]"
+pip install "pii-stripper-middleware[nlp] @ git+https://github.com/PerryLink/Pii-Stripper-Middleware.git"
+# (installs from source; not yet on PyPI)
 
 # Download Chinese SpaCy model (recommended)
 python -m spacy download zh_core_web_sm
@@ -70,9 +72,10 @@ python -m spacy download en_core_web_sm
 **Using Poetry**
 
 ```bash
-poetry add pii-stripper-middleware
+poetry add git+https://github.com/PerryLink/Pii-Stripper-Middleware.git
+# (installs from source; not yet on PyPI)
 # With NLP support
-poetry add "pii-stripper-middleware[nlp]"
+poetry add git+https://github.com/PerryLink/Pii-Stripper-Middleware.git --extras nlp
 ```
 
 ## Usage
